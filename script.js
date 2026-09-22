@@ -101,7 +101,7 @@
         let existingImages = [null, null, null, null]; // fotos ya guardadas del producto que se está editando
 
         // --- CARRITO DE COMPRAS ---
-        const WHATSAPP_NUMBER = "573008472025"; // 57 = Colombia + el número del footer
+        const WHATSAPP_NUMBER = "573005979420"; // 57 = Colombia + el número del footer
         let cart = loadCart(); // [{ id, name, price, image, qty }]
         let deepLinkHandled = false; // evita reabrir el modal de "?producto=" más de una vez
 
