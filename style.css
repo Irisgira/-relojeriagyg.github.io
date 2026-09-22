@@ -1,0 +1,29 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a;
+    color: #f3f4f6;
+    min-height: 100vh;
+}
+
+/* Scrollbar personalizado con acentos dorados */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 4px;
+}
+
+.card-shadow {
+    box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    color: #9ca3af;
+}
