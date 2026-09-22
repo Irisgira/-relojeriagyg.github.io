@@ -3,14 +3,11 @@
             theme: {
                 extend: {
                     colors: {
-                        pastelPink: '#ffd1dc',
-                        pastelPinkDark: '#f8b1c1',
-                        pastelYellow: '#fdfd96',
-                        pastelYellowDark: '#f7f779',
-                        pastelBlue: '#aec6cf',
-                        pastelBlueDark: '#8fb8c5',
-                        pastelPurple: '#e2d9f3',
-                        softDark: '#4a4a4a',
+                        gold: '#D4AF37',
+                        goldDark: '#a8842e',
+                        navy: '#0a1128',
+                        navyDark: '#05070d',
+                        navyLight: '#131b30',
                     },
                     fontFamily: {
                         poppins: ['Poppins', 'sans-serif'],
@@ -30,10 +27,10 @@
                 price: 18000,
                 description: "Llavero acrílico de alta durabilidad con diseño de osito tierno con gorro de cono de helado. Ideal para decorar tu bolso o llaves con un toque súper juvenil.",
                 images: [
-                    "https://placehold.co/600x600/ffd1dc/4a4a4a?text=Osito+Principal",
-                    "https://placehold.co/600x600/fdfd96/4a4a4a?text=Osito+Detalle+1",
-                    "https://placehold.co/600x600/aec6cf/4a4a4a?text=Osito+Detalle+2",
-                    "https://placehold.co/600x600/e2d9f3/4a4a4a?text=Osito+Empaque"
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Osito+Principal",
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Osito+Detalle+1",
+                    "https://placehold.co/600x600/0d1220/D4AF37?text=Osito+Detalle+2",
+                    "https://placehold.co/600x600/13203a/D4AF37?text=Osito+Empaque"
                 ]
             },
             {
@@ -43,9 +40,9 @@
                 price: 35000,
                 description: "Agenda argollada con hojas punteadas de 100g. Tapa dura con laminado brillante holográfico y tonos rosa y amarillo pastel. Perfecta para bullet journaling.",
                 images: [
-                    "https://placehold.co/600x600/fdfd96/4a4a4a?text=Agenda+Principal",
-                    "https://placehold.co/600x600/ffd1dc/4a4a4a?text=Agenda+Interior",
-                    "https://placehold.co/600x600/aec6cf/4a4a4a?text=Agenda+Stickers"
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Agenda+Principal",
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Agenda+Interior",
+                    "https://placehold.co/600x600/0d1220/D4AF37?text=Agenda+Stickers"
                 ]
             },
             {
@@ -55,9 +52,9 @@
                 price: 42000,
                 description: "Taza de cerámica artesanal en tonos azul pastel con orejitas en relieve y detalles dorados. Capacidad de 350ml, apta para microondas.",
                 images: [
-                    "https://placehold.co/600x600/aec6cf/4a4a4a?text=Taza+Gato+Principal",
-                    "https://placehold.co/600x600/ffd1dc/4a4a4a?text=Taza+Vista+Lateral",
-                    "https://placehold.co/600x600/fdfd96/4a4a4a?text=Taza+Empaque+Regalo"
+                    "https://placehold.co/600x600/0d1220/D4AF37?text=Taza+Gato+Principal",
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Taza+Vista+Lateral",
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Taza+Empaque+Regalo"
                 ]
             },
             {
@@ -67,8 +64,8 @@
                 price: 24000,
                 description: "Marcadores tipo resaltador con tonos suaves pasteles (rosa, amarillo, azul, lila, verde menta y durazno). Punta cincel para subrayado perfecto.",
                 images: [
-                    "https://placehold.co/600x600/e2d9f3/4a4a4a?text=Marcadores+Set",
-                    "https://placehold.co/600x600/ffd1dc/4a4a4a?text=Swatches+Colores"
+                    "https://placehold.co/600x600/13203a/D4AF37?text=Marcadores+Set",
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Swatches+Colores"
                 ]
             },
             {
@@ -78,9 +75,9 @@
                 price: 29000,
                 description: "Cartuchera o cosmetiquera transparente con efecto tornasol holográfico y cierre reforzado. Resistente al agua y muy espaciosa.",
                 images: [
-                    "https://placehold.co/600x600/ffd1dc/4a4a4a?text=Estuche+Abierto",
-                    "https://placehold.co/600x600/aec6cf/4a4a4a?text=Estuche+Cerrado",
-                    "https://placehold.co/600x600/fdfd96/4a4a4a?text=Estuche+Interior"
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Estuche+Abierto",
+                    "https://placehold.co/600x600/0d1220/D4AF37?text=Estuche+Cerrado",
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Estuche+Interior"
                 ]
             },
             {
@@ -90,8 +87,8 @@
                 price: 32000,
                 description: "Vela de cera de soya natural en frasco de vidrio decorado con cintas rosa pastel. Aroma dulce y relajante a vainilla y caramelo.",
                 images: [
-                    "https://placehold.co/600x600/fdfd96/4a4a4a?text=Vela+Vainilla",
-                    "https://placehold.co/600x600/ffd1dc/4a4a4a?text=Vela+Encendida"
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Vela+Vainilla",
+                    "https://placehold.co/600x600/1a1a1a/D4AF37?text=Vela+Encendida"
                 ]
             }
         ];
@@ -163,8 +160,8 @@
                 const isActive = currentCategory === cat;
                 const displayName = cat === 'todos' ? '✨ Todos los productos' : cat;
                 const activeClass = isActive 
-                    ? 'bg-gradient-to-r from-pink-400 to-yellow-400 text-white font-bold shadow-md transform scale-105' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100 font-medium border border-gray-100 shadow-sm';
+                    ? 'bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-bold shadow-md transform scale-105 border border-yellow-400' 
+                    : 'bg-[#111a2e] text-gray-300 hover:bg-[#131b30] hover:text-yellow-400 font-medium border border-yellow-500/20 shadow-sm';
                 
                 html += `
                     <button onclick="filterCategory('${cat}')" class="px-5 py-2 rounded-2xl text-xs sm:text-sm transition duration-300 focus:outline-none ${activeClass}">
@@ -215,30 +212,30 @@
             let html = '';
 
             filtered.forEach(p => {
-                const mainImage = (p.images && p.images.length > 0) ? p.images[0] : 'https://placehold.co/600x600/ffd1dc/4a4a4a?text=Sin+Imagen';
+                const mainImage = (p.images && p.images.length > 0) ? p.images[0] : 'https://placehold.co/600x600/1a1a1a/D4AF37?text=Sin+Imagen';
                 const formattedPrice = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(p.price);
 
                 html += `
-                    <div onclick="openProductModal('${p.id}')" class="bg-white rounded-3xl p-4 card-shadow hover:shadow-xl transition duration-300 cursor-pointer flex flex-col justify-between group border border-pink-50">
+                    <div onclick="openProductModal('${p.id}')" class="bg-[#0d1220] rounded-3xl p-4 card-shadow hover:shadow-xl transition duration-300 cursor-pointer flex flex-col justify-between group border border-yellow-500/20">
                         <div>
                             <!-- Image Container -->
-                            <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-50 mb-4">
-                                <img src="${mainImage}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x600/ffd1dc/4a4a4a?text=Imagen+No+Disponible'">
-                                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[11px] font-bold text-gray-700 px-3 py-1 rounded-full shadow-sm">
+                            <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-[#111a2e] mb-4">
+                                <img src="${mainImage}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x600/1a1a1a/D4AF37?text=Imagen+No+Disponible'">
+                                <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-sm text-[11px] font-bold text-yellow-400 px-3 py-1 rounded-full shadow-sm border border-yellow-500/30">
                                     ${p.category}
                                 </span>
                             </div>
                             <!-- Product Name -->
-                            <h4 class="font-bold text-gray-800 text-sm sm:text-base mb-1 line-clamp-1 group-hover:text-pink-500 transition">${p.name}</h4>
+                            <h4 class="font-bold text-white text-sm sm:text-base mb-1 line-clamp-1 group-hover:text-yellow-400 transition">${p.name}</h4>
                             <p class="text-xs text-gray-400 line-clamp-2 mb-3">${p.description}</p>
                         </div>
-                        <div class="flex items-center justify-between pt-3 border-t border-gray-100 mt-2">
-                            <span class="font-extrabold text-pink-500 text-sm sm:text-base">${formattedPrice}</span>
+                        <div class="flex items-center justify-between pt-3 border-t border-yellow-500/10 mt-2">
+                            <span class="font-extrabold text-yellow-400 text-sm sm:text-base">${formattedPrice}</span>
                             <div class="flex items-center gap-2">
-                                <button onclick="event.stopPropagation(); addToCart('${p.id}')" title="Agregar al carrito" class="w-8 h-8 rounded-full bg-yellow-50 text-yellow-600 hover:bg-yellow-500 hover:text-white flex items-center justify-center transition duration-300 text-xs">
+                                <button onclick="event.stopPropagation(); addToCart('${p.id}')" title="Agregar al carrito" class="w-8 h-8 rounded-full bg-yellow-500/10 text-yellow-400 hover:bg-yellow-500 hover:text-black flex items-center justify-center transition duration-300 text-xs">
                                     <i class="fa-solid fa-cart-plus"></i>
                                 </button>
-                                <span class="w-8 h-8 rounded-full bg-pink-50 text-pink-500 group-hover:bg-pink-500 group-hover:text-white flex items-center justify-center transition duration-300 text-xs">
+                                <span class="w-8 h-8 rounded-full bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-500 group-hover:text-black flex items-center justify-center transition duration-300 text-xs">
                                     <i class="fa-solid fa-eye"></i>
                                 </span>
                             </div>
@@ -256,15 +253,15 @@
             if (!p) return;
 
             const formattedPrice = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(p.price);
-            const images = p.images && p.images.length > 0 ? p.images : ['https://placehold.co/600x600/ffd1dc/4a4a4a?text=Sin+Imagen'];
+            const images = p.images && p.images.length > 0 ? p.images : ['https://placehold.co/600x600/1a1a1a/D4AF37?text=Sin+Imagen'];
 
             const modalContent = document.getElementById('modal-content');
             
             let thumbnailsHtml = '';
             images.forEach((img, index) => {
                 thumbnailsHtml += `
-                    <button onclick="changeModalMainImage('${img}', this)" class="w-16 h-16 rounded-xl overflow-hidden border-2 ${index === 0 ? 'border-pink-400' : 'border-transparent'} hover:border-pink-300 transition focus:outline-none flex-shrink-0 bg-gray-50">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/ffd1dc/4a4a4a?text=Error'">
+                    <button onclick="changeModalMainImage('${img}', this)" class="w-16 h-16 rounded-xl overflow-hidden border-2 ${index === 0 ? 'border-yellow-400' : 'border-transparent'} hover:border-yellow-300 transition focus:outline-none flex-shrink-0 bg-[#0d1220]">
+                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/1a1a1a/D4AF37?text=Error'">
                     </button>
                 `;
             });
@@ -273,8 +270,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                     <!-- Gallery Area -->
                     <div class="space-y-4">
-                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-gray-50 border border-gray-100">
-                            <img id="modal-main-img" src="${images[0]}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/ffd1dc/4a4a4a?text=Sin+Imagen'">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-[#0d1220] border border-yellow-500/20">
+                            <img id="modal-main-img" src="${images[0]}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/1a1a1a/D4AF37?text=Sin+Imagen'">
                         </div>
                         ${images.length > 1 ? `
                             <div class="flex items-center gap-2 overflow-x-auto pb-2">
@@ -285,21 +282,21 @@
                     <!-- Details Area -->
                     <div class="space-y-4 flex flex-col justify-between h-full">
                         <div>
-                            <span class="inline-block bg-pink-50 text-pink-500 font-bold text-xs px-3 py-1 rounded-full mb-2">
+                            <span class="inline-block bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 font-bold text-xs px-3 py-1 rounded-full mb-2">
                                 ${p.category}
                             </span>
-                            <h2 class="text-2xl font-extrabold text-gray-800 mb-2">${p.name}</h2>
-                            <div class="text-2xl font-black text-pink-500 mb-4">${formattedPrice}</div>
-                            <div class="bg-gray-50 p-4 rounded-2xl mb-4">
+                            <h2 class="text-2xl font-extrabold text-white mb-2">${p.name}</h2>
+                            <div class="text-2xl font-black text-yellow-400 mb-4">${formattedPrice}</div>
+                            <div class="bg-[#0d1220] p-4 rounded-2xl mb-4 border border-yellow-500/10">
                                 <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Descripción del Producto</h5>
-                                <p class="text-sm text-gray-600 leading-relaxed">${p.description}</p>
+                                <p class="text-sm text-gray-300 leading-relaxed">${p.description}</p>
                             </div>
                         </div>
-                        <div class="pt-4 border-t border-gray-100 space-y-2">
+                        <div class="pt-4 border-t border-yellow-500/10 space-y-2">
                             <button onclick="addToCart('${p.id}')" class="w-full py-3 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-black font-bold rounded-xl shadow-md transition duration-300 text-sm flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
                             </button>
-                            <button onclick="closeProductModal()" class="w-full py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold rounded-xl transition text-sm">
+                            <button onclick="closeProductModal()" class="w-full py-3 bg-[#131b30] hover:bg-[#1a2338] text-gray-200 font-bold rounded-xl transition text-sm">
                                 Volver al Catálogo
                             </button>
                         </div>
@@ -319,11 +316,11 @@
             // Update borders
             const container = btnEl.parentElement;
             Array.from(container.children).forEach(child => {
-                child.classList.remove('border-pink-400');
+                child.classList.remove('border-yellow-400');
                 child.classList.add('border-transparent');
             });
             btnEl.classList.remove('border-transparent');
-            btnEl.classList.add('border-pink-400');
+            btnEl.classList.add('border-yellow-400');
         }
 
         // Close Product Modal
@@ -435,19 +432,19 @@
 
             let html = '';
             cart.forEach(item => {
-                const img = item.image || 'https://placehold.co/100x100/ffd1dc/4a4a4a?text=Img';
+                const img = item.image || 'https://placehold.co/100x100/1a1a1a/D4AF37?text=Img';
                 html += `
-                    <div class="flex items-center gap-3 bg-[#1a1a1a] border border-yellow-500/10 rounded-2xl p-3">
-                        <img src="${img}" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" onerror="this.src='https://placehold.co/100x100/ffd1dc/4a4a4a?text=Img'">
+                    <div class="flex items-center gap-3 bg-[#111a2e] border border-yellow-500/10 rounded-2xl p-3">
+                        <img src="${img}" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" onerror="this.src='https://placehold.co/100x100/1a1a1a/D4AF37?text=Img'">
                         <div class="flex-grow min-w-0">
                             <h5 class="text-sm font-bold text-white truncate">${item.name}</h5>
                             <p class="text-xs text-yellow-400 font-semibold">${formatter.format(item.price)}</p>
                             <div class="flex items-center gap-2 mt-2">
-                                <button onclick="changeCartQty('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-[#262626] hover:bg-[#333] text-gray-300 flex items-center justify-center text-xs">
+                                <button onclick="changeCartQty('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-[#16213a] hover:bg-[#22304f] text-gray-300 flex items-center justify-center text-xs">
                                     <i class="fa-solid fa-minus"></i>
                                 </button>
                                 <span class="text-sm font-bold text-white w-5 text-center">${item.qty}</span>
-                                <button onclick="changeCartQty('${item.id}', 1)" class="w-7 h-7 rounded-lg bg-[#262626] hover:bg-[#333] text-gray-300 flex items-center justify-center text-xs">
+                                <button onclick="changeCartQty('${item.id}', 1)" class="w-7 h-7 rounded-lg bg-[#16213a] hover:bg-[#22304f] text-gray-300 flex items-center justify-center text-xs">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                             </div>
@@ -745,14 +742,14 @@
             if (editingProductId) {
                 icon.className = 'fa-solid fa-floppy-disk';
                 text.innerText = 'Guardar Cambios';
-                titleIcon.className = 'fa-solid fa-pen text-pastelBlueDark';
+                titleIcon.className = 'fa-solid fa-pen text-blue-300';
                 titleText.innerText = 'Editar Producto';
                 cancelBtn.classList.remove('hidden');
                 img1.removeAttribute('required');
             } else {
                 icon.className = 'fa-solid fa-cloud-arrow-up';
                 text.innerText = 'Guardar Producto en el Catálogo';
-                titleIcon.className = 'fa-solid fa-plus-circle text-pink-400';
+                titleIcon.className = 'fa-solid fa-plus-circle text-yellow-400';
                 titleText.innerText = 'Agregar Nuevo Producto al Catálogo';
                 cancelBtn.classList.add('hidden');
                 img1.setAttribute('required', 'required');
@@ -883,23 +880,23 @@
 
             let html = '';
             products.forEach(p => {
-                const mainImage = (p.images && p.images.length > 0) ? p.images[0] : 'https://placehold.co/100x100/ffd1dc/4a4a4a?text=Img';
+                const mainImage = (p.images && p.images.length > 0) ? p.images[0] : 'https://placehold.co/100x100/1a1a1a/D4AF37?text=Img';
                 const formattedPrice = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(p.price);
 
                 html += `
-                    <div class="flex items-center justify-between p-3 bg-white rounded-xl border border-gray-100 shadow-sm gap-4">
+                    <div class="flex items-center justify-between p-3 bg-[#161616] rounded-xl border border-yellow-500/15 shadow-sm gap-4">
                         <div class="flex items-center space-x-3 overflow-hidden">
-                            <img src="${mainImage}" class="w-12 h-12 rounded-lg object-cover flex-shrink-0" onerror="this.src='https://placehold.co/100x100/ffd1dc/4a4a4a?text=Img'">
+                            <img src="${mainImage}" class="w-12 h-12 rounded-lg object-cover flex-shrink-0" onerror="this.src='https://placehold.co/100x100/1a1a1a/D4AF37?text=Img'">
                             <div class="truncate">
-                                <h5 class="text-xs font-bold text-gray-800 truncate">${p.name}</h5>
-                                <p class="text-[11px] text-gray-400">${p.category} · <span class="text-pink-500 font-semibold">${formattedPrice}</span></p>
+                                <h5 class="text-xs font-bold text-white truncate">${p.name}</h5>
+                                <p class="text-[11px] text-gray-400">${p.category} · <span class="text-yellow-400 font-semibold">${formattedPrice}</span></p>
                             </div>
                         </div>
                         <div class="flex items-center gap-2 flex-shrink-0">
-                            <button onclick="openEditProduct('${p.id}')" class="w-9 h-9 rounded-lg bg-blue-50 hover:bg-blue-100 text-pastelBlueDark flex items-center justify-center transition text-xs" title="Editar producto">
+                            <button onclick="openEditProduct('${p.id}')" class="w-9 h-9 rounded-lg bg-[#16213a] hover:bg-[#1c2c4f] text-blue-300 flex items-center justify-center transition text-xs" title="Editar producto">
                                 <i class="fa-solid fa-pen"></i>
                             </button>
-                            <button onclick="deleteProduct('${p.id}')" class="w-9 h-9 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center transition text-xs" title="Eliminar producto">
+                            <button onclick="deleteProduct('${p.id}')" class="w-9 h-9 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 flex items-center justify-center transition text-xs" title="Eliminar producto">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </div>

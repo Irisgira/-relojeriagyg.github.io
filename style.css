@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: #0a0a0a;
+    background: #05070d;
     color: #f3f4f6;
     min-height: 100vh;
 }
@@ -10,7 +10,7 @@ body {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #121212;
+    background: #0d1220;
 }
 ::-webkit-scrollbar-thumb {
     background: #D4AF37;
@@ -23,7 +23,7 @@ body {
 }
 
 footer {
-    background-color: #0a0a0a;
+    background-color: #05070d;
     border-top: 1px solid rgba(212, 175, 55, 0.3);
     color: #9ca3af;
 }
