@@ -503,6 +503,7 @@
                 if (savedInfo) {
                     document.getElementById('checkout-name').value = savedInfo.name || '';
                     document.getElementById('checkout-city').value = savedInfo.city || '';
+                    document.getElementById('checkout-address').value = savedInfo.address || '';
                     document.getElementById('checkout-department').value = savedInfo.department || '';
                 }
             } catch (e) { /* sin problema si no hay datos guardados */ }
@@ -540,9 +541,9 @@
         }
 
         // Arma el mensaje de WhatsApp con el formato pedido y los productos del carrito
-        function buildWhatsAppMessage(name, city, department) {
+        function buildWhatsAppMessage(name,address, city, department) {
             const formatter = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
-            let msg = `Hola soy ${name}, me encuentro en ${city}, ${department}. Me interesa hacer la compra de estos productos:\n\n`;
+            let msg = `Hola soy ${name}, mi dirección es ${address},me encuentro en ${city}, ${department}. Me interesa hacer la compra de estos productos:\n\n`;
 
             cart.forEach(item => {
                 const qtyText = item.qty > 1 ? ` x${item.qty}` : '';
@@ -559,7 +560,8 @@
             const name = document.getElementById('checkout-name').value.trim();
             const city = document.getElementById('checkout-city').value.trim();
             const department = document.getElementById('checkout-department').value;
-
+            const address = document.getElementById('checkout-address').value.trim();
+            
             if (!name || !city || !department) {
                 showToast("Completa tu nombre, ciudad y departamento.", "error");
                 return;
@@ -572,7 +574,7 @@
             // Guarda los datos para que no tenga que volver a escribirlos la próxima vez
             localStorage.setItem('mitiko_checkout_info', JSON.stringify({ name, city, department }));
 
-            const message = buildWhatsAppMessage(name, city, department);
+            const message = buildWhatsAppMessage(name,address, city, department);
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
             window.open(whatsappUrl, '_blank');
