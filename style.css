@@ -514,10 +514,18 @@ header {
 .admin-row__name { font-size: .75rem; font-weight: 700; color: var(--white); margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .admin-row__meta { font-size: .6875rem; color: var(--gray-400); margin: 0; }
 .admin-row__actions { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; }
-.icon-btn--edit, .icon-btn--delete {
+.admin-row--hidden { opacity: .55; border-style: dashed; }
+.admin-row__badge {
+    display: inline-block; margin-left: .375rem; padding: .0625rem .5rem; border-radius: var(--radius-full);
+    background: rgba(244,63,94,.15); color: var(--rose-400); font-size: .5625rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .03em; vertical-align: middle;
+}
+.icon-btn--edit, .icon-btn--delete, .icon-btn--toggle {
     width: 2.25rem; height: 2.25rem; border-radius: var(--radius-sm); border: none; cursor: pointer;
     display: flex; align-items: center; justify-content: center; font-size: .75rem; transition: .2s;
 }
+.icon-btn--toggle { background: rgba(234,179,8,.1); color: var(--gold-400); }
+.icon-btn--toggle:hover { background: rgba(234,179,8,.25); }
 .icon-btn--edit { background: var(--c-surface); color: var(--blue-300); }
 .icon-btn--edit:hover { background: var(--c-edit-hover); }
 .icon-btn--delete { background: rgba(244,63,94,.1); color: var(--rose-400); }

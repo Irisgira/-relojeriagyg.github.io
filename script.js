@@ -133,7 +133,7 @@
         function renderCategories() {
             const container = document.getElementById('category-filters');
             // Extract unique categories
-            const categoriesSet = new Set(products.map(p => p.category));
+            const categoriesSet = new Set(products.filter(p => !p.hidden).map(p => p.category));
             const categories = ['todos', ...Array.from(categoriesSet)];
 
             let html = '';
@@ -173,6 +173,7 @@
 
             // Filter logic
             let filtered = products.filter(p => {
+                if (p.hidden) return false
                 const matchesCategory = currentCategory === 'todos' || p.category.toLowerCase() === currentCategory.toLowerCase();
                 const matchesSearch = p.name.toLowerCase().includes(searchQuery) || p.description.toLowerCase().includes(searchQuery) || p.category.toLowerCase().includes(searchQuery);
                 return matchesCategory && matchesSearch;
@@ -507,11 +508,12 @@
             if (deepLinkHandled) return;
             const params = new URLSearchParams(window.location.search);
             const productId = params.get('producto');
-            if (productId && products.find(p => p.id === productId)) {
+            const target = products.find(p => p.id === productId);
+            if (target && !target.hidden) {
                 deepLinkHandled = true;
                 openProductModal(productId);
             }
-        }
+}
 
         // Arma el mensaje de WhatsApp con el formato pedido y los productos del carrito
         function buildWhatsAppMessage(name, address, city, department) {
@@ -546,7 +548,7 @@
 
             // Guarda los datos para que no tenga que volver a escribirlos la próxima vez
             localStorage.setItem('mitiko_checkout_info', JSON.stringify({ name, address, city, department }));
-
+ 
             const message = buildWhatsAppMessage(name, address, city, department);
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
@@ -857,17 +859,21 @@
             products.forEach(p => {
                 const mainImage = (p.images && p.images.length > 0) ? p.images[0] : 'https://placehold.co/100x100/1a1a1a/D4AF37?text=Img';
                 const formattedPrice = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(p.price);
+                const isHidden = !!p.hidden
 
                 html += `
-                    <div class="admin-row">
+                     <div class="admin-row ${isHidden ? 'admin-row--hidden' : ''}">
                         <div class="admin-row__info">
                             <img src="${mainImage}" class="admin-row__thumb" onerror="this.src='https://placehold.co/100x100/1a1a1a/D4AF37?text=Img'">
                             <div class="admin-row__text">
-                                <h5 class="admin-row__name">${p.name}</h5>
+                                <h5 class="admin-row__name">${p.name} ${isHidden ? '<span class="admin-row__badge">Oculto</span>' : ''}</h5>
                                 <p class="admin-row__meta">${p.category} · <span class="text-accent">${formattedPrice}</span></p>
                             </div>
                         </div>
                         <div class="admin-row__actions">
+                            <button onclick="toggleProductVisibility('${p.id}', ${isHidden})" class="icon-btn--toggle" title="${isHidden ? 'Mostrar en el catálogo' : 'Ocultar del catálogo'}">
+                                <i class="fa-solid ${isHidden ? 'fa-eye' : 'fa-eye-slash'}"></i>
+                            </button>
                             <button onclick="openEditProduct('${p.id}')" class="icon-btn--edit" title="Editar producto">
                                 <i class="fa-solid fa-pen"></i>
                             </button>
@@ -879,6 +885,18 @@
                 `;
             });
             container.innerHTML = html;
+        }
+
+        // Oculta o vuelve a mostrar un producto en el catálogo público, sin borrarlo
+        function toggleProductVisibility(id, isCurrentlyHidden) {
+            db.collection('products').doc(id).update({ hidden: !isCurrentlyHidden })
+                .then(() => {
+                    showToast(isCurrentlyHidden ? "Producto visible de nuevo en el catálogo." : "Producto oculto del catálogo.", "success");
+                })
+                .catch((err) => {
+                    console.error(err);
+                    showToast("No se pudo actualizar la visibilidad. Intenta de nuevo.", "error");
+                });
         }
 
         // Delete Product (elimina también sus fotos, porque van embebidas en el producto)
