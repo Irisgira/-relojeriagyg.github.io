@@ -1,22 +1,3 @@
-// Configuración de colores y fuente para Tailwind
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#D4AF37',
-                        goldDark: '#a8842e',
-                        navy: '#0a1128',
-                        navyDark: '#05070d',
-                        navyLight: '#131b30',
-                    },
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
-                    }
-                }
-            }
-        }
-
-
 // Lógica del catálogo
         // Initial Mock Data (Fallback if LocalStorage is empty, approx 115 references simulation structure ready to be extended)
         const defaultProducts = [
@@ -159,12 +140,10 @@
             categories.forEach(cat => {
                 const isActive = currentCategory === cat;
                 const displayName = cat === 'todos' ? '✨ Todos los productos' : cat;
-                const activeClass = isActive 
-                    ? 'bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-bold shadow-md transform scale-105 border border-yellow-400' 
-                    : 'bg-[#111a2e] text-gray-300 hover:bg-[#131b30] hover:text-yellow-400 font-medium border border-yellow-500/20 shadow-sm';
-                
+                const activeClass = isActive ? 'category-btn--active' : '';
+
                 html += `
-                    <button onclick="filterCategory('${cat}')" class="px-5 py-2 rounded-2xl text-xs sm:text-sm transition duration-300 focus:outline-none ${activeClass}">
+                    <button onclick="filterCategory('${cat}')" class="category-btn ${activeClass}">
                         ${displayName}
                     </button>
                 `;
@@ -216,26 +195,24 @@
                 const formattedPrice = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(p.price);
 
                 html += `
-                    <div onclick="openProductModal('${p.id}')" class="bg-[#0d1220] rounded-3xl p-4 card-shadow hover:shadow-xl transition duration-300 cursor-pointer flex flex-col justify-between group border border-yellow-500/20">
+                    <div onclick="openProductModal('${p.id}')" class="product-card">
                         <div>
-                            <!-- Image Container -->
-                            <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-[#111a2e] mb-4">
-                                <img src="${mainImage}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x600/1a1a1a/D4AF37?text=Imagen+No+Disponible'">
-                                <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-sm text-[11px] font-bold text-yellow-400 px-3 py-1 rounded-full shadow-sm border border-yellow-500/30">
-                                    ${p.category}
-                                </span>
+                            <!-- Imagen -->
+                            <div class="product-card__image-wrap">
+                                <img src="${mainImage}" alt="${p.name}" class="product-card__image" onerror="this.src='https://placehold.co/600x600/1a1a1a/D4AF37?text=Imagen+No+Disponible'">
+                                <span class="product-card__category">${p.category}</span>
                             </div>
-                            <!-- Product Name -->
-                            <h4 class="font-bold text-white text-sm sm:text-base mb-1 line-clamp-1 group-hover:text-yellow-400 transition">${p.name}</h4>
-                            <p class="text-xs text-gray-400 line-clamp-2 mb-3">${p.description}</p>
+                            <!-- Nombre y descripción -->
+                            <h4 class="product-card__name line-clamp-1">${p.name}</h4>
+                            <p class="product-card__desc line-clamp-2">${p.description}</p>
                         </div>
-                        <div class="flex items-center justify-between pt-3 border-t border-yellow-500/10 mt-2">
-                            <span class="font-extrabold text-yellow-400 text-sm sm:text-base">${formattedPrice}</span>
-                            <div class="flex items-center gap-2">
-                                <button onclick="event.stopPropagation(); addToCart('${p.id}')" title="Agregar al carrito" class="w-8 h-8 rounded-full bg-yellow-500/10 text-yellow-400 hover:bg-yellow-500 hover:text-black flex items-center justify-center transition duration-300 text-xs">
+                        <div class="product-card__footer">
+                            <span class="product-card__price">${formattedPrice}</span>
+                            <div class="product-card__actions">
+                                <button onclick="event.stopPropagation(); addToCart('${p.id}')" title="Agregar al carrito" class="icon-btn--card">
                                     <i class="fa-solid fa-cart-plus"></i>
                                 </button>
-                                <span class="w-8 h-8 rounded-full bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-500 group-hover:text-black flex items-center justify-center transition duration-300 text-xs">
+                                <span class="icon-btn--card icon-btn--card--eye">
                                     <i class="fa-solid fa-eye"></i>
                                 </span>
                             </div>
@@ -260,43 +237,41 @@
             let thumbnailsHtml = '';
             images.forEach((img, index) => {
                 thumbnailsHtml += `
-                    <button onclick="changeModalMainImage('${img}', this)" class="w-16 h-16 rounded-xl overflow-hidden border-2 ${index === 0 ? 'border-yellow-400' : 'border-transparent'} hover:border-yellow-300 transition focus:outline-none flex-shrink-0 bg-[#0d1220]">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/1a1a1a/D4AF37?text=Error'">
+                    <button onclick="changeModalMainImage('${img}', this)" class="product-modal__thumb ${index === 0 ? 'product-modal__thumb--active' : ''}">
+                        <img src="${img}" onerror="this.src='https://placehold.co/600x600/1a1a1a/D4AF37?text=Error'">
                     </button>
                 `;
             });
 
             modalContent.innerHTML = `
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                    <!-- Gallery Area -->
-                    <div class="space-y-4">
-                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-[#0d1220] border border-yellow-500/20">
-                            <img id="modal-main-img" src="${images[0]}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/1a1a1a/D4AF37?text=Sin+Imagen'">
+                <div class="product-modal">
+                    <!-- Galería -->
+                    <div class="product-modal__gallery">
+                        <div class="product-modal__main-image">
+                            <img id="modal-main-img" src="${images[0]}" onerror="this.src='https://placehold.co/600x600/1a1a1a/D4AF37?text=Sin+Imagen'">
                         </div>
                         ${images.length > 1 ? `
-                            <div class="flex items-center gap-2 overflow-x-auto pb-2">
+                            <div class="product-modal__thumbs">
                                 ${thumbnailsHtml}
                             </div>
                         ` : ''}
                     </div>
-                    <!-- Details Area -->
-                    <div class="space-y-4 flex flex-col justify-between h-full">
+                    <!-- Detalles -->
+                    <div class="product-modal__info">
                         <div>
-                            <span class="inline-block bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 font-bold text-xs px-3 py-1 rounded-full mb-2">
-                                ${p.category}
-                            </span>
-                            <h2 class="text-2xl font-extrabold text-white mb-2">${p.name}</h2>
-                            <div class="text-2xl font-black text-yellow-400 mb-4">${formattedPrice}</div>
-                            <div class="bg-[#0d1220] p-4 rounded-2xl mb-4 border border-yellow-500/10">
-                                <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Descripción del Producto</h5>
-                                <p class="text-sm text-gray-300 leading-relaxed">${p.description}</p>
+                            <span class="product-modal__category">${p.category}</span>
+                            <h2 class="product-modal__name">${p.name}</h2>
+                            <div class="product-modal__price">${formattedPrice}</div>
+                            <div class="product-modal__desc-box">
+                                <h5 class="product-modal__desc-label">Descripción del Producto</h5>
+                                <p class="product-modal__desc-text">${p.description}</p>
                             </div>
                         </div>
-                        <div class="pt-4 border-t border-yellow-500/10 space-y-2">
-                            <button onclick="addToCart('${p.id}')" class="w-full py-3 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-black font-bold rounded-xl shadow-md transition duration-300 text-sm flex items-center justify-center gap-2">
+                        <div class="product-modal__actions">
+                            <button onclick="addToCart('${p.id}')" class="btn btn--primary">
                                 <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
                             </button>
-                            <button onclick="closeProductModal()" class="w-full py-3 bg-[#131b30] hover:bg-[#1a2338] text-gray-200 font-bold rounded-xl transition text-sm">
+                            <button onclick="closeProductModal()" class="btn btn--secondary">
                                 Volver al Catálogo
                             </button>
                         </div>
@@ -316,11 +291,9 @@
             // Update borders
             const container = btnEl.parentElement;
             Array.from(container.children).forEach(child => {
-                child.classList.remove('border-yellow-400');
-                child.classList.add('border-transparent');
+                child.classList.remove('product-modal__thumb--active');
             });
-            btnEl.classList.remove('border-transparent');
-            btnEl.classList.add('border-yellow-400');
+            btnEl.classList.add('product-modal__thumb--active');
         }
 
         // Close Product Modal
@@ -434,23 +407,23 @@
             cart.forEach(item => {
                 const img = item.image || 'https://placehold.co/100x100/1a1a1a/D4AF37?text=Img';
                 html += `
-                    <div class="flex items-center gap-3 bg-[#111a2e] border border-yellow-500/10 rounded-2xl p-3">
-                        <img src="${img}" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" onerror="this.src='https://placehold.co/100x100/1a1a1a/D4AF37?text=Img'">
-                        <div class="flex-grow min-w-0">
-                            <h5 class="text-sm font-bold text-white truncate">${item.name}</h5>
-                            <p class="text-xs text-yellow-400 font-semibold">${formatter.format(item.price)}</p>
-                            <div class="flex items-center gap-2 mt-2">
-                                <button onclick="changeCartQty('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-[#16213a] hover:bg-[#22304f] text-gray-300 flex items-center justify-center text-xs">
+                    <div class="cart-item">
+                        <img src="${img}" class="cart-item__img" onerror="this.src='https://placehold.co/100x100/1a1a1a/D4AF37?text=Img'">
+                        <div class="cart-item__body">
+                            <h5 class="cart-item__name truncate">${item.name}</h5>
+                            <p class="cart-item__price">${formatter.format(item.price)}</p>
+                            <div class="cart-item__qty-row">
+                                <button onclick="changeCartQty('${item.id}', -1)" class="qty-btn">
                                     <i class="fa-solid fa-minus"></i>
                                 </button>
-                                <span class="text-sm font-bold text-white w-5 text-center">${item.qty}</span>
-                                <button onclick="changeCartQty('${item.id}', 1)" class="w-7 h-7 rounded-lg bg-[#16213a] hover:bg-[#22304f] text-gray-300 flex items-center justify-center text-xs">
+                                <span class="cart-item__qty-value">${item.qty}</span>
+                                <button onclick="changeCartQty('${item.id}', 1)" class="qty-btn">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                             </div>
                         </div>
-                        <button onclick="removeFromCart('${item.id}')" title="Quitar" class="w-8 h-8 rounded-full bg-rose-500/10 hover:bg-rose-500/30 text-rose-400 flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-trash-can text-xs"></i>
+                        <button onclick="removeFromCart('${item.id}')" title="Quitar" class="cart-item__remove">
+                            <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
                 `;
@@ -541,9 +514,9 @@
         }
 
         // Arma el mensaje de WhatsApp con el formato pedido y los productos del carrito
-        function buildWhatsAppMessage(name,address, city, department) {
+        function buildWhatsAppMessage(name, address, city, department) {
             const formatter = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
-            let msg = `Hola soy ${name}, mi dirección es ${address},me encuentro en ${city}, ${department}. Me interesa hacer la compra de estos productos:\n\n`;
+            let msg = `Hola soy ${name}, mi dirección es ${address}, me encuentro en ${city}, ${department}. Me interesa hacer la compra de estos productos:\n\n`;
 
             cart.forEach(item => {
                 const qtyText = item.qty > 1 ? ` x${item.qty}` : '';
@@ -562,8 +535,8 @@
             const department = document.getElementById('checkout-department').value;
             const address = document.getElementById('checkout-address').value.trim();
             
-            if (!name || !city || !department) {
-                showToast("Completa tu nombre, ciudad y departamento.", "error");
+            if (!name || !address || !city || !department) {
+                showToast("Completa tu nombre, dirección, ciudad y departamento.", "error");
                 return;
             }
             if (cart.length === 0) {
@@ -572,9 +545,9 @@
             }
 
             // Guarda los datos para que no tenga que volver a escribirlos la próxima vez
-            localStorage.setItem('mitiko_checkout_info', JSON.stringify({ name, city, department }));
+            localStorage.setItem('mitiko_checkout_info', JSON.stringify({ name, address, city, department }));
 
-            const message = buildWhatsAppMessage(name,address, city, department);
+            const message = buildWhatsAppMessage(name, address, city, department);
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
             window.open(whatsappUrl, '_blank');
@@ -744,14 +717,14 @@
             if (editingProductId) {
                 icon.className = 'fa-solid fa-floppy-disk';
                 text.innerText = 'Guardar Cambios';
-                titleIcon.className = 'fa-solid fa-pen text-blue-300';
+                titleIcon.className = 'fa-solid fa-pen text-info';
                 titleText.innerText = 'Editar Producto';
                 cancelBtn.classList.remove('hidden');
                 img1.removeAttribute('required');
             } else {
                 icon.className = 'fa-solid fa-cloud-arrow-up';
                 text.innerText = 'Guardar Producto en el Catálogo';
-                titleIcon.className = 'fa-solid fa-plus-circle text-yellow-400';
+                titleIcon.className = 'fa-solid fa-plus-circle text-accent';
                 titleText.innerText = 'Agregar Nuevo Producto al Catálogo';
                 cancelBtn.classList.add('hidden');
                 img1.setAttribute('required', 'required');
@@ -876,7 +849,7 @@
             document.getElementById('admin-prod-count').innerText = products.length;
 
             if (products.length === 0) {
-                container.innerHTML = `<p class="text-xs text-gray-400 text-center py-4">No hay productos registrados.</p>`;
+                container.innerHTML = `<p class="empty-hint">No hay productos registrados.</p>`;
                 return;
             }
 
@@ -886,19 +859,19 @@
                 const formattedPrice = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(p.price);
 
                 html += `
-                    <div class="flex items-center justify-between p-3 bg-[#161616] rounded-xl border border-yellow-500/15 shadow-sm gap-4">
-                        <div class="flex items-center space-x-3 overflow-hidden">
-                            <img src="${mainImage}" class="w-12 h-12 rounded-lg object-cover flex-shrink-0" onerror="this.src='https://placehold.co/100x100/1a1a1a/D4AF37?text=Img'">
-                            <div class="truncate">
-                                <h5 class="text-xs font-bold text-white truncate">${p.name}</h5>
-                                <p class="text-[11px] text-gray-400">${p.category} · <span class="text-yellow-400 font-semibold">${formattedPrice}</span></p>
+                    <div class="admin-row">
+                        <div class="admin-row__info">
+                            <img src="${mainImage}" class="admin-row__thumb" onerror="this.src='https://placehold.co/100x100/1a1a1a/D4AF37?text=Img'">
+                            <div class="admin-row__text">
+                                <h5 class="admin-row__name">${p.name}</h5>
+                                <p class="admin-row__meta">${p.category} · <span class="text-accent">${formattedPrice}</span></p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-2 flex-shrink-0">
-                            <button onclick="openEditProduct('${p.id}')" class="w-9 h-9 rounded-lg bg-[#16213a] hover:bg-[#1c2c4f] text-blue-300 flex items-center justify-center transition text-xs" title="Editar producto">
+                        <div class="admin-row__actions">
+                            <button onclick="openEditProduct('${p.id}')" class="icon-btn--edit" title="Editar producto">
                                 <i class="fa-solid fa-pen"></i>
                             </button>
-                            <button onclick="deleteProduct('${p.id}')" class="w-9 h-9 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 flex items-center justify-center transition text-xs" title="Eliminar producto">
+                            <button onclick="deleteProduct('${p.id}')" class="icon-btn--delete" title="Eliminar producto">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </div>
@@ -927,17 +900,17 @@
 
             const toast = document.createElement('div');
             toast.id = 'toast-notification';
-            const bgClass = type === 'success' ? 'bg-emerald-500' : 'bg-rose-500';
-            toast.className = `fixed bottom-6 right-6 z-50 ${bgClass} text-white px-5 py-3 rounded-2xl shadow-lg text-xs sm:text-sm font-bold flex items-center gap-2 transform translate-y-10 opacity-0 transition-all duration-300`;
+            const typeClass = type === 'success' ? 'toast--success' : 'toast--error';
+            toast.className = `toast ${typeClass}`;
             toast.innerHTML = `<i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation'}"></i> ${message}`;
 
             document.body.appendChild(toast);
             setTimeout(() => {
-                toast.classList.remove('translate-y-10', 'opacity-0');
+                toast.classList.add('toast--visible');
             }, 50);
 
             setTimeout(() => {
-                toast.classList.add('translate-y-10', 'opacity-0');
+                toast.classList.remove('toast--visible');
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
         }
